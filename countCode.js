@@ -5,17 +5,36 @@ const data = ["FWmcfgAWxe","KnFJXGcACq","cCYApSPiX0","iHwbq2giBx","X5Ebl6sjLf","
 "OO5OnLzsdP","hLddf4izXl","6x8suntNs6","8VATvVOQZR","jxL8zSOcZN","87YqnuB6Mc","sqr1WbVsWv","fLC17MbW59",
 "tJ6Z5r6mDd","iiEffxACk7","C6w4k9AS2N","9rQTNM8xmG","x4JQLDr6hd","3bYXSm7Zgo","phTYCmMxOW","isl31Fd0SN","CZItvlfdqW"];
 
-let iStartAmount = 0
-function countCode(c) {
-    amount = data.forEach(startWithI);
-}
 
-function startWithI(item) {
-    let char = "i";
-    if (item.startsWith(char)) {
-        iStartAmount++;
+function countCode(char) {
+    console.log("new start")
+    let iStartAmount = 0
+    function startWithI(item, index) {
+        console.log("#checking letter ",char, " current count", iStartAmount, item, index)
+        if (item.startsWith(char)) {
+            iStartAmount++;
+            
+        }
     }
+    
+    data.forEach(startWithI);
+    return iStartAmount
 }
 
-countCode(iStartAmount)
-console.log(iStartAmount)
+function countCode2(char) {
+    let count = 0
+
+    for (let i=0; i< data.length; i++) {
+        let item = data[i]
+        console.log("data[i] on ",data[i], " i on ", i)
+        if (item.startsWith(char)) {
+            count++;
+        }
+    }
+    
+    return count
+}
+
+
+console.log(countCode2("i"))
+console.log(countCode("i"))
